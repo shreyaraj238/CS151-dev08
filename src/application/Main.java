@@ -3,6 +3,7 @@ package application;
 
 
 import javafx.animation.ScaleTransition;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
@@ -16,6 +17,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.control.Alert;
 
 
 
@@ -62,7 +64,28 @@ public class Main extends Application {
 	        btnScaleTransitionExit.setToY(1);
 	        saveBtn.setOnMouseEntered(event -> btnScaleTransitionEnter.playFromStart());
 	        saveBtn.setOnMouseExited(event -> btnScaleTransitionExit.playFromStart());
-			
+	        
+	        saveBtn.setOnAction(event -> {
+	            String categoryName = textField.getText().trim(); // Save the category name
+
+	            if (categoryName.isEmpty()) {
+	                // Display error message if the text field is empty
+	                Alert alert = new Alert(Alert.AlertType.ERROR);
+	                alert.setTitle("Error");
+	                alert.setHeaderText(null);
+	                alert.setContentText("Please enter a category name.");
+	                alert.showAndWait();
+	            } else {
+	                textField.clear(); // Clear the text from the TextField
+
+	                // Display a message to indicate successful saving
+	                Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+	                successAlert.setTitle("Information");
+	                successAlert.setHeaderText(null);
+	                successAlert.setContentText("Category name \"" + categoryName + "\" has been saved!");
+	                successAlert.showAndWait();
+	            }
+	        });
 			
 			root.getChildren().addAll(borderPane,textField,saveBtn);
 			Scene scene = new Scene(root,400,400);
