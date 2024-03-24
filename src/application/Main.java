@@ -28,9 +28,17 @@ public class Main extends Application {
 			defCatBtn.setFont(Font.font("Arial", FontWeight.BOLD, 24));
 			defCatBtn.setTextFill(Color.rgb(212,  180, 131));
 			
+			Label titleLabel = new Label("My Asset Tracker");
+	        titleLabel.setFont(Font.font("Arial", FontWeight.BOLD, 30));
+	        titleLabel.setTextFill(Color.rgb(212, 180, 131));
+			
 			BorderPane root = new BorderPane();
-			root.setTop(defCatBtn);
-			BorderPane.setAlignment(defCatBtn, Pos.CENTER_RIGHT);
+			root.setStyle("-fx-background-color: #E4DFDA;");
+	        root.setPadding(new Insets(20));
+			root.setTop(titleLabel); 
+	        BorderPane.setAlignment(titleLabel, Pos.CENTER);
+			root.setCenter(defCatBtn);
+			BorderPane.setAlignment(defCatBtn, Pos.CENTER);
 			
 			Scene scene = new Scene(root, 400, 400);
 
