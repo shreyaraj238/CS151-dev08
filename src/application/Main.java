@@ -11,9 +11,12 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			// Load Home page FXML file
 			VBox root = (VBox)FXMLLoader.load(getClass().getClassLoader().getResource("view/Main.fxml"));
+			// Sets stage for Home page elements from FXML file
 			Scene scene = new Scene(root,400,400);
 			primaryStage.setScene(scene);
+			// Show Home page scene
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
